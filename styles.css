@@ -1,0 +1,21 @@
+:root{
+    --blue: #2d728f;
+    --green: #53a548;
+    --brown: #583e23;
+}
+
+body{
+    background-color: var(--blue);
+}
+
+header h1{
+    color: var(--green);
+}
+
+header h2{
+    color: var(--brown);
+}
+
+.rules{
+    color: var(--brown)
+}
