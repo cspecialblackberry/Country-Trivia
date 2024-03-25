@@ -12,22 +12,30 @@ const letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M'
 const run = () => {
     startBtn.setAttribute('class', 'hidden')
     const roundLetter = letters[Math.floor(Math.random() * letters.length)]
-
-    const letterDisplay = document.createElement('h1')
-    letterDisplay.textContent = `This round's letter is ${roundLetter}` 
-    letterDiv.appendChild(letterDisplay)
-
+    
     let countryCount = 3
-
-    console.log(roundLetter)
 
     if(roundLetter === 'Z'){
         countryCount = 2
-    } else if(roundLetter === 'O' || roundLetter === 'Q' || roundLetter ==='W' || roundLetter === 'Y' ){
+    } else if(roundLetter === 'O' || roundLetter === 'Q' || roundLetter ==='W' || roundLetter === 'Y'){
         countryCount = 1 
     }
 
-    console.log(countryCount)
+    const letterDisplay = document.createElement('h1')
+    letterDisplay.textContent = `Enter ${countryCount} countries starting with ${roundLetter}.` 
+    letterDiv.appendChild(letterDisplay)
+
+    for(i=0; i<countryCount; i++){
+        const inputDiv = document.createElement('div')
+        const listTag = document.createElement('p')
+        listTag.textContent= `${i+1}.`
+        const input = document.createElement('input')
+        input.setAttribute('type', 'text')
+        input.setAttribute('placeholder', 'Enter Country')
+        inputDiv.appendChild(listTag)
+        inputDiv.appendChild(input)
+        inputSection.appendChild(inputDiv)
+    }
 }
 
 startBtn.addEventListener('click', run)
